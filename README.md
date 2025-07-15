@@ -1,5 +1,34 @@
 # PositionManagement
 
+Open solution in Visual studio and create DB 
+
+ConnectionString Data Source=(localdb)\ProjectModels;Initial Catalog=PositionsManagement;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False
+
+CREATE TABLE [dbo].[Transaction] (
+    [TransactionId] INT IDENTITY(1,1) PRIMARY KEY,
+    [TradeId] INT NOT NULL,
+    [Version] INT NOT NULL,
+    [SecurityCode] NVARCHAR(16) NOT NULL,
+    [Quantity] INT NOT NULL,
+    [Action] NVARCHAR(10) NOT NULL, -- 'INSERT', 'UPDATE', 'CANCEL'
+    [TradeType] NVARCHAR(10) NOT NULL, -- 'Buy', 'Sell'
+    [Timestamp] DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME()
+);
+
+CREATE TABLE [dbo].[Position] (
+    [PositionId] INT IDENTITY(1,1) PRIMARY KEY,
+    [SecurityCode] NVARCHAR(16) NOT NULL,
+    [Quantity] INT NOT NULL
+);
+
+cd  positionmanagement.client 
+npm install 
+
+
+
+<img width="288" height="133" alt="image" src="https://github.com/user-attachments/assets/5dab92c1-79b9-420d-ba86-81e110341e36" />
+
+
 PositionManagement
 <img width="1555" height="788" alt="image" src="https://github.com/user-attachments/assets/75d4242f-0204-4b22-8694-bd79de409b1f" />
 
